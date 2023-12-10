@@ -17,7 +17,7 @@ source "/data/SetupHelper/CommonResources"
 
 # GitHub account info - fill in as appropriate
 # to include this package in SetupHelper automatic updates
-packageGitHubUser="Lucifer06"
+packageGitHubUser="thomasinaz41213"
 packageGitHubBranch="Latest"
 
 restartSystemCalc=false
@@ -43,33 +43,8 @@ if [ $scriptAction == 'INSTALL' ] ; then
 	updateActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
 	updateActiveFile /etc/venus/gpio_list
 	updateActiveFile /usr/lib/node_modules/@victronenergy/node-red-contrib-victron/src/services/services.json
-	updateActiveFile /etc/udev/rules.d/serial-starter.rules
 	updateActiveFile /data/rgpio/conf/RemoteGPIO.json
 
-	##
-	## Install node-red palettes
-	##
-	cwd=$(pwd)
-	cd /data/home/nodered/.node-red/node_modules
-	npm install node-red-dashboard
-	npm install node-red-contrib-buffer-parser
-	npm install node-red-contrib-debounce
-  	cd $cwd
-  	
-  	##
-  	## Install RemoteGPIO flows
-  	##
-  	cp /data/rgpio/conf/RemoteGPIO.json /data/home/nodered/.node-red/lib/flows/
-  	if [ ! -e /data/home/nodered/.node-red/flows.json ]
-    then
-      logMessage "No flows, installing RemoteGPIO.json"
-      cp /data/rgpio/conf/RemoteGPIO.json /data/home/nodered/.node-red/flows.json
-    else
-      logMessage "Flows already in use, users need to import from local library RemoteGPIO.json"
-    fi
-	chown -R nodered:nodered /data/home/nodered/
-	svc -d /service/node-red-venus ; svc -u /service/node-red-venus 
-  	
 	##
 	## Creating /dev/gpio links at boot so the bus services are automatically created 
 	##
@@ -90,7 +65,6 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	restoreActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
 	restoreActiveFile /etc/venus/gpio_list
 	restoreActiveFile /usr/lib/node_modules/@victronenergy/node-red-contrib-victron/src/services/services.json
-	restoreActiveFile /etc/udev/rules.d/serial-starter.rules
 	
 	rm /etc/rcS.d/S90rgpio_pins.sh
 	rm /dev/gpio/relay_3
@@ -99,15 +73,6 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	rm /dev/gpio/relay_6
 	
 	##
-	## Remove node-red palettes
-	##
-	cwd=$(pwd)
-	cd /data/home/nodered/.node-red/node_modules
-	npm remove node-red-dashboard
-	npm remove node-red-contrib-buffer-parser
-	npm remove node-red-contrib-debounce
-	svc -d /service/node-red-venus ; svc -u /service/node-red-venus 
-  	cd $cwd
 	
 	removeService $packageName
 	restartSystemCalc=true
