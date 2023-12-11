@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# this script installs RemoteGPIO following SetupHelper rules (https://github.com/kwindrem/SetupHelper)
+# this script installs RemoteGPIO_tcpip following SetupHelper rules (https://github.com/kwindrem/SetupHelper)
 #
 # this script will accept the following commands on the command line:
 #	setup install
 #	setup uninstall
 
-packageLogFile="/var/log/RemoteGPIO/current"
+packageLogFile="/var/log/RemoteGPIO_tcpip/current"
 
 #### following lines incorporate SetupHelper utilities into this script
 # Refer to the SetupHelper ReadMe file for details.
@@ -18,15 +18,15 @@ source "/data/SetupHelper/CommonResources"
 # GitHub account info - fill in as appropriate
 # to include this package in SetupHelper automatic updates
 packageGitHubUser="thomasinaz41213"
-packageGitHubBranch="Latest"
+packageGitHubBranch="main"
 
 restartSystemCalc=false
 
 #### running manually and OK to proceed - prompt for input
 if [ $scriptAction == 'NONE' ] ; then
 	echo
-	echo "The RemoteGPIO is adding external Relays and Digital Inputs"
-	echo "with external box attached via USB port"
+	echo "The RemoteGPIO_tcpip is adding external Relays and Digital Inputs"
+	echo "with external box attached via ethernet port, wifi, or ap"
 	echo
 	standardActionPrompt
 fi
@@ -34,9 +34,9 @@ fi
 #### here to do the actual work
 
 if [ $scriptAction == 'INSTALL' ] ; then
-	logMessage "++ Installing RemoteGPIO"
+	logMessage "++ Installing RemoteGPIO_tcpip"
 
-	tar -xvzf /data/RemoteGPIO/FileSets/Shared/rgpio.tar.gz -C /data
+	tar -xvzf /data/RemoteGPIO_tcpip/FileSets/Shared/rgpio.tar.gz -C /data
     
 	installService $packageName
 
@@ -59,7 +59,7 @@ fi
 # #### uninstalling - check scriptAction again
 # if an install step failed package needs to be removed
 if [ $scriptAction == 'UNINSTALL' ] ; then
-    logMessage "++ Uninstalling RemoteGPIO"
+    logMessage "++ Uninstalling RemoteGPIO_tcpip"
 
 	
 	restoreActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
@@ -78,7 +78,7 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	restartSystemCalc=true
 		
 	rm -r /data/rgpio
-#	rm -r /data/RemoteGPIO
+#	rm -r /data/RemoteGPIO_tcpip
 	logMessage "++ $packageName uninstalled"
 fi
 
