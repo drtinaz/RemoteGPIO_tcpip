@@ -1,3 +1,9 @@
+****	This fork removes serial starter rules file changes, and removes all checks and flow installs for node red. 		****
+****	This is intended for use with wifi router, built in wifi ap, or ethernet cable. This will not work for USB  		****
+****	connected rs485. For that, use the original RemoteGPIO repository by Lucifer06. Stripping the afore mentioned		****
+****	functions from the setup script dramatically improves the install time. Instead of taking a few minutes to install 	****
+****	it now takes just a few seconds												****
+
 This package is mainly targeting Cerbo GX users that wants to extend Digital Inputs and Relays on their system.
 Please note that there is a conflict with Kwindrem's RpiGpioSetup that is targeting Raspberry pi users
 
