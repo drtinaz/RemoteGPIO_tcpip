@@ -43,7 +43,6 @@ if [ $scriptAction == 'INSTALL' ] ; then
 	updateActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
 	updateActiveFile /etc/venus/gpio_list
 	updateActiveFile /usr/lib/node_modules/@victronenergy/node-red-contrib-victron/src/services/services.json
-	updateActiveFile /data/rgpio/conf/RemoteGPIO.json
 
 	##
 	## Creating /dev/gpio links at boot so the bus services are automatically created 
