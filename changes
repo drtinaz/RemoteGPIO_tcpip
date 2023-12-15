@@ -14,3 +14,5 @@ v2.4
 	removed RemoteGPIO.json from filesets (I just want this package to focus on the main files and not node red)
 	removed RemoteGPIO.json active file update from setup
 	added serial-starter.rules and serial-starter.rules.orig back into v3.13 fileset to assist in furure updates to fguiot's main package, even though this package does not require it.
+V2.4.1
+	Added COMPLETE to each fileset folder
