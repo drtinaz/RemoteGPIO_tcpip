@@ -1,0 +1,609 @@
+[
+    {
+        "id": "53183c191ed0b41b",
+        "type": "tab",
+        "label": "Digital Inputs (TCP)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6a47fa3553c19496",
+        "type": "inject",
+        "z": "53183c191ed0b41b",
+        "name": "Read Register 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 380,
+        "wires": [
+            [
+                "9a073c7b1964b523"
+            ]
+        ]
+    },
+    {
+        "id": "9a073c7b1964b523",
+        "type": "function",
+        "z": "53183c191ed0b41b",
+        "name": "Read_Val",
+        "func": "msg.payload = {\n    'fc' : 3,\n    'unitid' : 1,\n    'address' : 10,\n    'quantity' : 1\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 380,
+        "wires": [
+            [
+                "e5bb44706fb155d4"
+            ]
+        ]
+    },
+    {
+        "id": "e5bb44706fb155d4",
+        "type": "modbus-flex-getter",
+        "z": "53183c191ed0b41b",
+        "name": "Digital Input (bin)",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "logIOActivities": false,
+        "server": "98970a3050192af7",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "x": 550,
+        "y": 380,
+        "wires": [
+            [],
+            [
+                "40c4a19d859f4d94"
+            ]
+        ]
+    },
+    {
+        "id": "1fc72cf218984a70",
+        "type": "comment",
+        "z": "53183c191ed0b41b",
+        "name": "Read Remote Digital Input",
+        "info": "",
+        "x": 170,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "40c4a19d859f4d94",
+        "type": "buffer-parser",
+        "z": "53183c191ed0b41b",
+        "name": "",
+        "data": "payload[\"data\"]",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "8bit",
+                "name": "0",
+                "offset": 1,
+                "length": 1,
+                "offsetbit": 3,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": true,
+        "fanOutMultipleResult": true,
+        "setTopic": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 380,
+        "wires": [
+            [
+                "5d7bb72bf57da8d0"
+            ]
+        ]
+    },
+    {
+        "id": "89482729d6603a67",
+        "type": "buffer-parser",
+        "z": "53183c191ed0b41b",
+        "name": "",
+        "data": "payload[\"0\"].bits",
+        "dataType": "msg",
+        "specification": "spec",
+        "specificationType": "ui",
+        "items": [
+            {
+                "type": "bool",
+                "name": "item1",
+                "offset": 1,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item2",
+                "offset": 3,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item3",
+                "offset": 5,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item4",
+                "offset": 7,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item5",
+                "offset": 9,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item6",
+                "offset": 11,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item7",
+                "offset": 13,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            },
+            {
+                "type": "bool",
+                "name": "item8",
+                "offset": 15,
+                "length": 1,
+                "offsetbit": 0,
+                "scale": "1",
+                "mask": ""
+            }
+        ],
+        "swap1": "",
+        "swap2": "",
+        "swap3": "",
+        "swap1Type": "swap",
+        "swap2Type": "swap",
+        "swap3Type": "swap",
+        "msgProperty": "payload",
+        "msgPropertyType": "str",
+        "resultType": "value",
+        "resultTypeType": "output",
+        "multipleResult": true,
+        "fanOutMultipleResult": true,
+        "setTopic": true,
+        "outputs": 8,
+        "x": 1130,
+        "y": 380,
+        "wires": [
+            [
+                "cb9f7fc8d2ad284c"
+            ],
+            [
+                "4e7151153480b923"
+            ],
+            [
+                "d57c4ef06671140f"
+            ],
+            [
+                "7b33cc8dbc8d4dcb"
+            ],
+            [
+                "29a0656c67c17489"
+            ],
+            [
+                "f02c495d6f269175"
+            ],
+            [
+                "306d3a214f86b7b4"
+            ],
+            [
+                "0aa32d32bbc9c7e5"
+            ]
+        ]
+    },
+    {
+        "id": "5d7bb72bf57da8d0",
+        "type": "rbe",
+        "z": "53183c191ed0b41b",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 950,
+        "y": 380,
+        "wires": [
+            [
+                "89482729d6603a67"
+            ]
+        ]
+    },
+    {
+        "id": "4e7151153480b923",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d57c4ef06671140f",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b33cc8dbc8d4dcb",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29a0656c67c17489",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f02c495d6f269175",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "306d3a214f86b7b4",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0aa32d32bbc9c7e5",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb9f7fc8d2ad284c",
+        "type": "change",
+        "z": "53183c191ed0b41b",
+        "name": "Bool->Number",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "false",
+                "fromt": "bool",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1560,
+        "y": 240,
+        "wires": [
+            [
+                "7cde43bc4e1b4791"
+            ]
+        ]
+    },
+    {
+        "id": "7cde43bc4e1b4791",
+        "type": "link out",
+        "z": "53183c191ed0b41b",
+        "name": "external input 1",
+        "mode": "link",
+        "links": [
+            "ed51b0c84a435a16"
+        ],
+        "x": 1765,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "98970a3050192af7",
+        "type": "modbus-client",
+        "name": "Dingtian IOT Relay",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "192.168.8.103",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "1000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true
+    }
+]
