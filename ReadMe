@@ -53,4 +53,5 @@ Go to Settings/Relay there are 4x additional relays to be enabled and then use t
 display the additional relays
 
 2/ RemoteGPIO can also be used with Node-RED
-With Node-Red it is possible to use all 8x relays as well as the 8x digital inputs
+With Node-Red it is possible to use all 8x relays as well as the 8x digital inputs.
+Multiple relay modules can be installed and used simultaniously by assigning each module it's own ip address.
