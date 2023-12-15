@@ -36,7 +36,8 @@ Add RemoteGPIO repo: RemoteGPIO thomasinaz41213 latest
 Download and install the package
 
 4/ Open node red in a browser and import/deploy the Digital Inputs and Relays json's from the files section of this repo 
-(both flows are necessary for full function of the relays)
+(both flows are necessary for full function of the relays). If you are using a 2 or 4 relay module and not an 8 relay module,
+you can disable or delete the additional relays and inputs from the flows.
 
 Using RemoteGPIO:
 =================
