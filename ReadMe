@@ -1,17 +1,23 @@
-****	This is a stripped version of Lucifer06 RemoteGPIO package								****
-****	This fork removes serial starter rules file changes, and removes all checks and flow installs for node red. 		****
-****	This is intended for use with wifi router, built in wifi ap, or ethernet cable. This will not work for USB  		****
-****	connected rs485. For that, use the original RemoteGPIO repository by Lucifer06. Stripping the afore mentioned		****
-****	functions from the setup script dramatically improves the install time. Instead of taking a few minutes to install 	****
-****	it now takes just a few seconds												****
+*******************************
+*** ATTENTION READ THIS *******
+*******************************
+This is a stripped version of Lucifer06 RemoteGPIO package This fork removes serial starter rules file changes, and 
+removes all checks and flow installs for node red. This is intended for use with wifi router, built in wifi ap, or 
+ethernet cable. This will not work for USB connected rs485. For that, use the original RemoteGPIO repository by 
+Lucifer06. Stripping the afore mentioned functions from the setup script dramatically improves the install time. 
+Instead of taking a few minutes to install it now takes just a few seconds
+*******************************
+*******************************
 
 This package is mainly targeting Cerbo GX users that wants to extend Digital Inputs and Relays on their system.
 Please note that there is a conflict with Kwindrem's RpiGpioSetup that is targeting Raspberry pi users
 
-In order to have a reliable direct attached interface to the relay, I selected a Modbus/RTU based relai from Dingtian that attaches on the USB port of the Cerbo GX.
+In order to have a reliable direct attached interface to the relay, I selected a Modbus/RTU based relai from Dingtian 
+that attaches on the USB port of the Cerbo GX.
 There are many solutions for attaching relays via Ethernet.
 
-This Dingtian box provide 8x relays, that can be controlled with Modbus Serial, but also over IP and with various additional protocols: https://fr.aliexpress.com/item/4000999069820.html
+This Dingtian box provide 8x relays, that can be controlled with Modbus Serial, but also over IP and with various 
+additional protocols: https://fr.aliexpress.com/item/4000999069820.html
 They have variants of 2, 4 or 8 relays.
 
 SETUP:
@@ -43,7 +49,8 @@ Using RemoteGPIO:
 =================
 1/ RemoteGPIO can be used from VenusOS GUI to control 4x additional relays.
 It is required to install Kwindrem's GuiMods package (https://github.com/kwindrem/GuiMods)
-Go to Settings/Relay there are 4x additional relays to be enabled and then use the dedicated Relay page that should display the additional relays
+Go to Settings/Relay there are 4x additional relays to be enabled and then use the dedicated Relay page that should 
+display the additional relays
 
 2/ RemoteGPIO can also be used with Node-RED
 With Node-Red it is possible to use all 8x relays as well as the 8x digital inputs
