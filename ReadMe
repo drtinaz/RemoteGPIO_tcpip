@@ -1,3 +1,4 @@
+****	This is a stripped version of Lucifer06 RemoteGPIO package								****
 ****	This fork removes serial starter rules file changes, and removes all checks and flow installs for node red. 		****
 ****	This is intended for use with wifi router, built in wifi ap, or ethernet cable. This will not work for USB  		****
 ****	connected rs485. For that, use the original RemoteGPIO repository by Lucifer06. Stripping the afore mentioned		****
@@ -8,13 +9,10 @@ This package is mainly targeting Cerbo GX users that wants to extend Digital Inp
 Please note that there is a conflict with Kwindrem's RpiGpioSetup that is targeting Raspberry pi users
 
 In order to have a reliable direct attached interface to the relay, I selected a Modbus/RTU based relai from Dingtian that attaches on the USB port of the Cerbo GX.
-There are many solutions for attaching relays via Ethernet, but I didn't the relays to rely on an external Ethernet network switch.
+There are many solutions for attaching relays via Ethernet.
 
 This Dingtian box provide 8x relays, that can be controlled with Modbus Serial, but also over IP and with various additional protocols: https://fr.aliexpress.com/item/4000999069820.html
-They have variants of 4 or 8 relays.
-A USB to RS 485 adapter will be required.
-I selected this one as this is coming with a USB cable and can fit nicely on the Cerbo GX: https://fr.aliexpress.com/item/1005004778767986.html
-The RS485 must be connected on the first USB port of the Cerbo GX
+They have variants of 2, 4 or 8 relays.
 
 SETUP:
 =====
@@ -22,9 +20,11 @@ The setup is now fully automated, no more requirement to issue shell commands! :
 It runs only with VenusOS Large with minimum version 2.92
 
 1/ Configure the Relay Module
-The Dingtian IOT Relay module needs to be configured so Modbus RTU works:
-Connect the ethernet interface of the module and access to its configuration page (192.168.1.100 and admin/admin by default).
-Configure the RS485 with Protocol Modbus-RTU and set address to 1 (for the first unit).
+CONFIGURATION OF THE RELAY MODULE Connect the ethernet interface of the module and access to its configuration page 
+(192.168.1.100 and admin/admin by default) you can also connect directly to the relay module wireless AP to complete 
+the setup: AP IP = 192.168.7.1, ssid = dtrelay(xxxx), password = dtpassword on the settings tab: you will need to set 
+either the ETH or STA settings depending on which connection method used. Make note of the IP address. on the relay 
+connect tab: Configure TCP Server to Modbus-TCP and local port 502
 
 2/ VenusOS Large
 Install the desired VenusOS Large version (minimum v2.92) 
@@ -32,11 +32,11 @@ Enable Node-RED (Settings/Venus OS Large features)
 
 3/ Install RemoteGPIO
 Make sure SetupHelper from Kwindrem is installed. If not follow instructions from https://github.com/kwindrem/SetupHelper
-Add RemoteGPIO repo if not already listed in the inactive packages RemoteGPIO Lucifer06:main
+Add RemoteGPIO repo: RemoteGPIO thomasinaz41213 latest
 Download and install the package
-BE PATIENT during the Installation of the package, it can takes few minutes as it downloads few Node-RED palettes
-Reboot will be required for the USB to be not anymore preempted by VenusOS services
 
+4/ Open node red in a browser and import/deploy the Digital Inputs and Relays json's from the files section of this repo 
+(both flows are necessary for full function of the relays)
 
 Using RemoteGPIO:
 =================
@@ -46,41 +46,3 @@ Go to Settings/Relay there are 4x additional relays to be enabled and then use t
 
 2/ RemoteGPIO can also be used with Node-RED
 With Node-Red it is possible to use all 8x relays as well as the 8x digital inputs
-During the installation of the package, the following Node-RED palettes are automatically installed:
-	— node-red-dashboard
-	— node-red-contrib-buffer-parser
-	— node-red-contrib-debounce
-If there was no flows yet running the RemoteGPIO flow got installed
-If a flow was already installed, in order to not break anything RemoteGPIO will need to be manually imported from the local library (Menu Import / Local / RemoteGPIO.json)
-The RemoteGPIO flow is also adding a Node-RED dashboard for controlling the Relays and monitoring the Digital Inputs
-RemoteGPIO v2.x is backward compatible with previous venus_rgpio (https://community.victronenergy.com/questions/166784/solution-adding-external-relays-to-cerbo-gx-using.html).
-
-
-Troubleshooting:
-================
-Any questions or suggestions about RemoteGPIO are welcome here: https://community.victronenergy.com/questions/245584/remotegpio-ex-venus-rgpio-now-available-with-setup.html
-
-Most of the issues are coming from USBtoRS485 adapter been trapped by the wrong VenusOS service.
-In order to make it working with default configuration file, it is important to attach it to the first USB port.
-*IMPORTANT* If a different adpater is used, or if a different USB port is used (or connected behind a USB hub) the file /etc/udev/rules.d/serial-starter.rules will required to be tweaked accordingly so the USB-RS485 adpater is always accesible with /dev/ttyUSB0
-
-Toubleshooting from command line with dbus
-List of all dbus relays and their status:
-dbus -y com.victronenergy.system /Relay GetValue
-Close Relay 3:
-dbus -y com.victronenergy.system /Relay/3/State SetValue %1
-
-Toubleshooting from command line with modbus
-Read Digital Inputs:
-/data/rgpio/modpoll/arm-linux-gnueabihf/modpoll -m rtu -b 115200 -p none -d 8 -r 11 -s 1 -c 1 /dev/ttyUSB0
-Close Relay 1:
-/data/rgpio/modpoll/arm-linux-gnueabihf/modpoll -m rtu -b 115200 -p none -d 8 -1 -r 3 -s 1 -c 1 /dev/ttyUSB0 257
-Open Relay 1:
-/data/rgpio/modpoll/arm-linux-gnueabihf/modpoll -m rtu -b 115200 -p none -d 8 -1 -r 3 -s 1 -c 1 /dev/ttyUSB0 256
-
-Check that no process are talking to USB0:
-ps | grep USB0
-Should return only rgpio services. If not, it may be required to reboot VenusOS for the serial-starter.rules to apply
-
-Prevent USB0 to be used by another service:
-/opt/victronenergy/serial-starter/stop-tty.sh ttyUSB0
