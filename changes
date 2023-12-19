@@ -16,3 +16,5 @@ v2.4
 	added serial-starter.rules and serial-starter.rules.orig back into v3.13 fileset to assist in furure updates to fguiot's main package, even though this package does not require it.
 V2.4.1
 	Added COMPLETE to each fileset folder
+v2.5
+	Change versioning methos to comply with venus versioning method
