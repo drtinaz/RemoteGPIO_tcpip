@@ -18,3 +18,5 @@ V2.4.1
 	Added COMPLETE to each fileset folder
 v2.5
 	Change versioning methos to comply with venus versioning method
+v2.6
+	Added support for v3.20~35
