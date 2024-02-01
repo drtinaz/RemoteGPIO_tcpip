@@ -37,8 +37,6 @@ if [ $scriptAction == 'INSTALL' ] ; then
 	logMessage "++ Installing RemoteGPIO_tcpip"
 
 	tar -xvzf /data/RemoteGPIO_tcpip/FileSets/Shared/rgpio.tar.gz -C /data
-    
-	installService $packageName
 
 	updateActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
 	updateActiveFile /etc/venus/gpio_list
@@ -73,7 +71,6 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	
 	##
 	
-	removeService $packageName
 	restartSystemCalc=true
 		
 	rm -r /data/rgpio
