@@ -20,3 +20,5 @@ v2.5
 	Change versioning methos to comply with venus versioning method
 v2.6
 	Added support for v3.20~35
+v2.7
+	removed reference to service install/removal which is not used in this package and caused issues with v6.1 of setuphelper
