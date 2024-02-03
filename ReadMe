@@ -12,10 +12,6 @@ Instead of taking a few minutes to install it now takes just a few seconds
 This package is mainly targeting Cerbo GX users that wants to extend Digital Inputs and Relays on their system.
 Please note that there is a conflict with Kwindrem's RpiGpioSetup that is targeting Raspberry pi users
 
-In order to have a reliable direct attached interface to the relay, I selected a Modbus/RTU based relai from Dingtian 
-that attaches on the USB port of the Cerbo GX.
-There are many solutions for attaching relays via Ethernet.
-
 This Dingtian box provide 8x relays, that can be controlled with Modbus Serial, but also over IP and with various 
 additional protocols: https://fr.aliexpress.com/item/4000999069820.html
 They have variants of 2, 4 or 8 relays.
@@ -36,7 +32,7 @@ connect tab: Configure TCP Server to Modbus-TCP and local port 502
 Install the desired VenusOS Large version (minimum v2.92) 
 Enable Node-RED (Settings/Venus OS Large features)
 
-3/ Install RemoteGPIO
+3/ Install RemoteGPIO_tcpip
 Make sure SetupHelper from Kwindrem is installed. If not follow instructions from https://github.com/kwindrem/SetupHelper
 Add RemoteGPIO_tcpip repo: RemoteGPIO_tcpip thomasinaz41213 latest
 Download and install the package
@@ -45,13 +41,13 @@ Download and install the package
 (both flows are necessary for full function of the relays). If you are using a 2 or 4 relay module and not an 8 relay module,
 you can disable or delete the additional relays and inputs from the flows.You will need to open the tcpip node and set the IP address to what you previously set in the dingtian relay config.
 
-Using RemoteGPIO:
+Using RemoteGPIO_tcpip:
 =================
-1/ RemoteGPIO can be used from VenusOS GUI to control 4x additional relays.
+1/ RemoteGPIO_tcpip can be used from VenusOS GUI to control 4x additional relays.
 It is required to install Kwindrem's GuiMods package (https://github.com/kwindrem/GuiMods)
 Go to Settings/Relay there are 4x additional relays to be enabled and then use the dedicated Relay page that should 
 display the additional relays
 
-2/ RemoteGPIO can also be used with Node-RED
+2/ RemoteGPIO_tcpip can also be used with Node-RED
 With Node-Red it is possible to use all 8x relays as well as the 8x digital inputs.
 Multiple relay modules can be installed and used simultaniously by assigning each module it's own ip address.
