@@ -26,3 +26,5 @@ v2.8
 	Added fileset for v3.30~6
 v2.9
 	added support for up to 18 relays in gui for venus v3.21
+v2.9.1
+	add pins
