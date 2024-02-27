@@ -24,3 +24,5 @@ v2.7
 	removed reference to service install/removal which is not used in this package and caused issues with v6.1 of setuphelper
 v2.8
 	Added fileset for v3.30~6
+v2.9beta
+	added support for up to 18 relays in gui for venus v3.21
