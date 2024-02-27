@@ -33,14 +33,7 @@ class RelayState(SystemCalcDelegate):
 			('/Relay/7/State', '/Settings/Relay/7/InitialState', 0, 0, 1),
 			('/Relay/8/State', '/Settings/Relay/8/InitialState', 0, 0, 1),
 			('/Relay/9/State', '/Settings/Relay/9/InitialState', 0, 0, 1),
-			('/Relay/a/State', '/Settings/Relay/a/InitialState', 0, 0, 1),
-			('/Relay/b/State', '/Settings/Relay/b/InitialState', 0, 0, 1),
-			('/Relay/c/State', '/Settings/Relay/c/InitialState', 0, 0, 1),
-			('/Relay/d/State', '/Settings/Relay/d/InitialState', 0, 0, 1),
-			('/Relay/e/State', '/Settings/Relay/e/InitialState', 0, 0, 1),
-			('/Relay/f/State', '/Settings/Relay/f/InitialState', 0, 0, 1),
-			('/Relay/g/State', '/Settings/Relay/g/InitialState', 0, 0, 1),
-			('/Relay/h/State', '/Settings/Relay/h/InitialState', 0, 0, 1)
+			('/Relay/a/State', '/Settings/Relay/a/InitialState', 0, 0, 1)
 			]
 
 	@property
