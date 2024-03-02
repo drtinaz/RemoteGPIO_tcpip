@@ -30,3 +30,5 @@ v2.10
 	add support for v3.30~10
 v2.11
 	removed serial-starter files from fileset and filelist
+v2.12
+	minor change to setup script
