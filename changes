@@ -28,4 +28,5 @@ v2.9
 	added support for v3.21 (includes relays 7 - 10 on gui and node red)
 v2.10
 	add support for v3.30~10
-
+v2.11
+	removed serial-starter files from fileset and filelist
