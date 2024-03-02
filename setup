@@ -77,8 +77,7 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	
 	restartSystemCalc=true
 		
-	rm -r /data/rgpio
-#	rm -r /data/RemoteGPIO_tcpip
+	rm -rf /data/rgpio
 	logMessage "++ $packageName uninstalled"
 fi
 
@@ -88,9 +87,7 @@ if $filesUpdated ; then
     ##
     ## Reboot or restart the services
     ##
-#    svc -d /service/dbus-systemcalc-py/ ; svc -u /service/dbus-systemcalc-py/
-#    svc -d /service/gui ; svc -u /service/gui
-#    svc -d /service/node-red-venus ; svc -u /service/node-red-venus
+
     restartGui=true
 fi
 
