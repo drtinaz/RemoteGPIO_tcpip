@@ -24,12 +24,17 @@ class RelayState(SystemCalcDelegate):
 	def get_settings(self):
 		return [
 			('/Relay/0/State', '/Settings/Relay/0/InitialState', 0, 0, 1),
-                        ('/Relay/1/State', '/Settings/Relay/1/InitialState', 0, 0, 1),
-                        ('/Relay/2/State', '/Settings/Relay/2/InitialState', 0, 0, 1),
-                        ('/Relay/3/State', '/Settings/Relay/3/InitialState', 0, 0, 1),
-                        ('/Relay/4/State', '/Settings/Relay/4/InitialState', 0, 0, 1),
-			('/Relay/5/State', '/Settings/Relay/5/InitialState', 0, 0, 1)
-		]
+			('/Relay/1/State', '/Settings/Relay/1/InitialState', 0, 0, 1),
+			('/Relay/2/State', '/Settings/Relay/2/InitialState', 0, 0, 1),
+			('/Relay/3/State', '/Settings/Relay/3/InitialState', 0, 0, 1),
+			('/Relay/4/State', '/Settings/Relay/4/InitialState', 0, 0, 1),
+			('/Relay/5/State', '/Settings/Relay/5/InitialState', 0, 0, 1),
+			('/Relay/6/State', '/Settings/Relay/6/InitialState', 0, 0, 1),
+			('/Relay/7/State', '/Settings/Relay/7/InitialState', 0, 0, 1),
+			('/Relay/8/State', '/Settings/Relay/8/InitialState', 0, 0, 1),
+			('/Relay/9/State', '/Settings/Relay/9/InitialState', 0, 0, 1),
+			('/Relay/a/State', '/Settings/Relay/a/InitialState', 0, 0, 1)
+			]
 
 	@property
 	def relay_function(self):

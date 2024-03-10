@@ -8,5 +8,9 @@
 - out relay_4
 - out relay_5
 - out relay_6
+- out relay_7
+- out relay_8
+- out relay_9
+- out relay_a
 - out mkx_rst
 - out vebus_standby
