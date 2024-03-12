@@ -1,6 +1,6 @@
 v2.16
 	change to 'main' branch/tag for setuphelper
-	update minimum version info
+	update first compatable version
 v2.15
 	add support for v3.14, v3.20, v3.30~15
 v2.13
