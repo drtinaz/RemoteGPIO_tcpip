@@ -8,6 +8,8 @@
 
 packageLogFile="/var/log/RemoteGPIO_tcpip/current"
 
+standardPromptAndActions='yes'
+
 #### following lines incorporate helper resources into this script
 pkgDir=$( dirname $0 )
 pkgName=$( basename $pkgDir )
