@@ -8,12 +8,19 @@
 
 packageLogFile="/var/log/RemoteGPIO_tcpip/current"
 
-#### following lines incorporate SetupHelper utilities into this script
-# Refer to the SetupHelper ReadMe file for details.
-
-source "/data/SetupHelper/CommonResources"
-
-#### end of lines to include SetupHelper
+#### following lines incorporate helper resources into this script
+pkgDir=$( dirname $0 )
+pkgName=$( basename $pkgDir )
+pkgRoot=$( dirname $pkgDir )
+if [ -e "$pkgDir/HelperResources/IncludeHelpers" ]; then
+	source "$pkgDir/HelperResources/IncludeHelpers"
+elif [ -e "$pkgRoot/SetupHelper/HelperResources/IncludeHelpers" ]; then
+	source "$pkgRoot/SetupHelper/HelperResources/IncludeHelpers"
+else
+	echo "$pkgName: helper files not found - can't continue" | tee -a "/data/log/SetupHelper"
+	exit 1
+fi
+#### end of lines to include helper resources
 
 # GitHub account info - fill in as appropriate
 # to include this package in SetupHelper automatic updates
