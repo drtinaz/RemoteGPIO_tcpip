@@ -7,9 +7,6 @@
 #	setup uninstall
 
 packageLogFile="/var/log/RemoteGPIO_tcpip/current"
-set -x
-
-standardPromptAndActions='yes'
 
 #### following lines incorporate helper resources into this script
 pkgDir=$( dirname $0 )
