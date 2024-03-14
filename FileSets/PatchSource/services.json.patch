@@ -1,8 +1,14 @@
 --- services.json.source	2024-03-12 14:36:48.692851000 -0700
 +++ services.json.edited	2024-03-12 14:36:48.692851000 -0700
 @@ -3877,6 +3877,60 @@
-           "0": "Open",
-           "1": "Closed"
+      },
+      {
+        "path": "/Relay/3/State",
+        "type": "enum",
+        "name": "Venus relay 4 state",
+        "enum": {
+          "0": "Open",
+          "1": "Closed"
          }
 +      },
 +      {
@@ -62,9 +68,14 @@
      ],
      "accharger": [
 @@ -6411,6 +6465,66 @@
-         "enum": {
-           "0": "Open",
-           "1": "Closed"
+      },
+      {
+        "path": "/Relay/3/State",
+        "type": "enum",
+        "name": "Venus relay 4 state",
+        "enum": {
+          "0": "Open",
+          "1": "Closed"
 +        },
 +        "writable": true
 +      },
