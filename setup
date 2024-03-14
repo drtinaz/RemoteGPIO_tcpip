@@ -103,8 +103,8 @@ if $restartSystemCalc ; then
 	svc -t /service/dbus-systemcalc-py
 fi
 
-standardPromptAndActions='yes'
+# standardPromptAndActions='yes'
 
 # thats all folks - SCRIPT EXITS INSIDE THE FUNCTION
-endScript
+endScript INSTALL_FILES
 
