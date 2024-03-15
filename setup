@@ -25,7 +25,7 @@ fi
 # GitHub account info - fill in as appropriate
 # to include this package in SetupHelper automatic updates
 packageGitHubUser="thomasinaz41213"
-packageGitHubBranch="beta"
+packageGitHubBranch="main"
 
 restartSystemCalc=false
 
