@@ -1,0 +1,16 @@
+--- gpio_list.source	2024-03-12 14:36:48.676112700 -0700
++++ gpio_list.edited	2024-03-12 14:36:48.676112700 -0700
+@@ -4,5 +4,13 @@
+ - in  digital_input_4
+ - out relay_1
+ - out relay_2
++- out relay_3
++- out relay_4
++- out relay_5
++- out relay_6
++- out relay_7
++- out relay_8
++- out relay_9
++- out relay_a
+ - out mkx_rst
+ - out vebus_standby

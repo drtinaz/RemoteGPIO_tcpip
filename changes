@@ -1,3 +1,19 @@
+v2.20.11
+	add packageDependencies
+v2.20.10
+	update services.json.patch
+v2.20.6
+	setup
+v2.20.5
+	setup
+v2.20.4
+	more changes to setup
+v2.20.3
+	more changes to setup
+v2.20.2
+	update setup
+v2.20.1
+	add file patch ability
 v2.16
 	change to 'main' branch/tag for setuphelper
 	update first compatable version

@@ -1,0 +1,142 @@
+--- services.json.source
++++ services.json.edited
+@@ -3874,12 +3874,66 @@
+         "type": "enum",
+         "name": "Venus relay 4 state",
+         "enum": {
+           "0": "Open",
+           "1": "Closed"
+         }
++      },
++      {
++        "path": "/Relay/4/State",
++        "type": "enum",
++        "name": "Venus relay 5 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
++      },
++      {
++        "path": "/Relay/5/State",
++        "type": "enum",
++        "name": "Venus relay 6 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
++      },
++      {
++        "path": "/Relay/6/State",
++        "type": "enum",
++        "name": "Venus relay 7 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
++      },
++      {
++        "path": "/Relay/7/State",
++        "type": "enum",
++        "name": "Venus relay 8 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
++      },
++      {
++        "path": "/Relay/8/State",
++        "type": "enum",
++        "name": "Venus relay 9 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
++      },
++      {
++        "path": "/Relay/9/State",
++        "type": "enum",
++        "name": "Venus relay 10 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        }
+       }
+     ],
+     "accharger": [
+       {
+         "path": "/Relay/0/State",
+         "type": "enum",
+@@ -6405,12 +6459,72 @@
+         "writable": true
+       },
+       {
+         "path": "/Relay/3/State",
+         "type": "enum",
+         "name": "Venus relay 4 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/4/State",
++        "type": "enum",
++        "name": "Venus relay 5 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/5/State",
++        "type": "enum",
++        "name": "Venus relay 6 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/6/State",
++        "type": "enum",
++        "name": "Venus relay 7 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/7/State",
++        "type": "enum",
++        "name": "Venus relay 8 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/8/State",
++        "type": "enum",
++        "name": "Venus relay 9 state",
++        "enum": {
++          "0": "Open",
++          "1": "Closed"
++        },
++        "writable": true
++      },
++      {
++        "path": "/Relay/9/State",
++        "type": "enum",
++        "name": "Venus relay 10 state",
+         "enum": {
+           "0": "Open",
+           "1": "Closed"
+         },
+         "writable": true
+       }
