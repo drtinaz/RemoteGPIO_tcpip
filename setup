@@ -27,7 +27,7 @@ fi
 packageGitHubUser="thomasinaz41213"
 packageGitHubBranch="main"
 
-restartSystemCalc=false
+# restartSystemCalc=false
 
 #### running manually and OK to proceed - prompt for input
 if [ $scriptAction == 'NONE' ] ; then
@@ -55,7 +55,7 @@ if [ $scriptAction == 'INSTALL' ] ; then
 	ln -s /data/rgpio/conf/S90rgpio_pins.sh /etc/rcS.d/S90rgpio_pins.sh
 	/data/rgpio/conf/S90rgpio_pins.sh
 	
-	restartSystemCalc=true
+#	restartSystemCalc=true
 
 	logMessage "++ $packageName installed"
 fi
@@ -82,7 +82,7 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	
 	##
 	
-	restartSystemCalc=true
+#	restartSystemCalc=true
 		
 	rm -rf /data/rgpio
 	logMessage "++ $packageName uninstalled"
@@ -90,18 +90,18 @@ fi
 
 
 
-if $filesUpdated ; then
+# if $filesUpdated ; then
     ##
     ## Reboot or restart the services
     ##
 
-    restartGui=true
-fi
+#    restartGui=true
+#fi
 
-if $restartSystemCalc ; then
-	logMessage "restarting systemcalc"
-	svc -t /service/dbus-systemcalc-py
-fi
+#if $restartSystemCalc ; then
+#	logMessage "restarting systemcalc"
+#	svc -t /service/dbus-systemcalc-py
+#fi
 
 # standardPromptAndActions='yes'
 
