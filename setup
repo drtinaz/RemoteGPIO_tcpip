@@ -27,8 +27,6 @@ fi
 packageGitHubUser="thomasinaz41213"
 packageGitHubBranch="main"
 
-# restartSystemCalc=false
-
 #### running manually and OK to proceed - prompt for input
 if [ $scriptAction == 'NONE' ] ; then
 	echo
@@ -45,17 +43,11 @@ if [ $scriptAction == 'INSTALL' ] ; then
 
 	tar -xvzf /data/RemoteGPIO_tcpip/FileSets/Shared/rgpio.tar.gz -C /data
 
-	#updateActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
-	#updateActiveFile /etc/venus/gpio_list
-	#updateActiveFile /usr/lib/node_modules/@victronenergy/node-red-contrib-victron/src/services/services.json
-
 	##
 	## Creating /dev/gpio links at boot so the bus services are automatically created 
 	##
 	ln -s /data/rgpio/conf/S90rgpio_pins.sh /etc/rcS.d/S90rgpio_pins.sh
 	/data/rgpio/conf/S90rgpio_pins.sh
-	
-#	restartSystemCalc=true
 
 	logMessage "++ $packageName installed"
 fi
@@ -65,10 +57,6 @@ fi
 if [ $scriptAction == 'UNINSTALL' ] ; then
     logMessage "++ Uninstalling RemoteGPIO_tcpip"
 
-	
-	#restoreActiveFile /opt/victronenergy/dbus-systemcalc-py/delegates/relaystate.py 
-	#restoreActiveFile /etc/venus/gpio_list
-	#restoreActiveFile /usr/lib/node_modules/@victronenergy/node-red-contrib-victron/src/services/services.json
 	
 	rm /etc/rcS.d/S90rgpio_pins.sh
 	rm /dev/gpio/relay_3
@@ -81,30 +69,10 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
 	rm /dev/gpio/relay_a
 	
 	##
-	
-#	restartSystemCalc=true
 		
 	rm -rf /data/rgpio
 	logMessage "++ $packageName uninstalled"
 fi
 
-
-
-# if $filesUpdated ; then
-    ##
-    ## Reboot or restart the services
-    ##
-
-#    restartGui=true
-#fi
-
-#if $restartSystemCalc ; then
-#	logMessage "restarting systemcalc"
-#	svc -t /service/dbus-systemcalc-py
-#fi
-
-# standardPromptAndActions='yes'
-
 # thats all folks - SCRIPT EXITS INSIDE THE FUNCTION
 endScript INSTALL_FILES
-
