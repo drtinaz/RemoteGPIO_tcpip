@@ -1,3 +1,6 @@
+v2.22
+	change first compatable version to v2.92
+	cleanup setup script
 v2.21
 	merge beta into main
 	patch is now used instead of updateactivefile
