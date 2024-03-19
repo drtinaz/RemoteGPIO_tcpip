@@ -34,7 +34,7 @@ Enable Node-RED (Settings/Venus OS Large features)
 
 3/ Install RemoteGPIO_tcpip
 Make sure SetupHelper from Kwindrem is installed. If not follow instructions from https://github.com/kwindrem/SetupHelper
-Add RemoteGPIO_tcpip repo: RemoteGPIO_tcpip thomasinaz41213 main
+Add RemoteGPIO_tcpip repo: RemoteGPIO_tcpip drtinaz main
 Download and install the package
 
 4/ Open node red in a browser and import/deploy the Digital Inputs and Relays json's from the files section of this repo 
